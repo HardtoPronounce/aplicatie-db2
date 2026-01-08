@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Medicamente</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/pacienti}" class="nav-link">Pacienti</a>
+    <a th:href="@{/medicamente}" class="nav-link">Medicamente</a>
+    <a th:href="@{/retete}" class="nav-link">Retete</a>
+</nav>
+</header>
+<div class="container">
+
+<h1 class="page-title">Lista Medicamente</h1>
+<div style="margin-bottom:12px; text-align:right;">
+    <a th:href="@{/medicamente/new}" class="btn btn-primary">Add Medicament</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Denumire</th>
+            <th>Producator</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="m : ${medicamente}">
+            <td th:text="${m.denumire}">Aspirin</td>
+            <td th:text="${m.producator}">Producer</td>
+            <td>
+                <a th:href="@{/medicamente/edit/{id}(id=${m.id_medicament})}" class="btn btn-primary">Update</a>
+                <form th:action="@{/medicamente/delete/{id}(id=${m.id_medicament})}" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this medicament?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Retete</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/pacienti}" class="nav-link">Pacienti</a>
+    <a th:href="@{/medicamente}" class="nav-link">Medicamente</a>
+    <a th:href="@{/retete}" class="nav-link">Retete</a>
+</nav>
+</header>
+<div class="container">
+
+<h1 class="page-title">Lista Retete</h1>
+<div style="margin-bottom:12px; text-align:right;">
+    <a th:href="@{/retete/new}" class="btn btn-primary">Add Reteta</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Pacient</th>
+            <th>Medicament</th>
+            <th>Doza</th>
+            <th>Data start</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="r : ${retete}">
+            <td th:text="${r.pacientName}">Pacient Name</td>
+            <td th:text="${r.medicamentName}">Medicament Name</td>
+            <td th:text="${r.doza}">1 tablet/day</td>
+            <td th:text="${r.data_start}">2025-01-01</td>
+            <td>
+                <a th:href="@{/retete/edit/{pid}/{mid}(pid=${r.id_pacient},mid=${r.id_medicament})}" class="btn btn-primary">Update</a>
+                <form th:action="@{/retete/delete/{pid}/{mid}(pid=${r.id_pacient},mid=${r.id_medicament})}" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this reteta?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

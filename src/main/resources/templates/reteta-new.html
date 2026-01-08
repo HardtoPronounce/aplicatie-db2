@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>New Reteta</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/retete}" class="nav-link">Retete</a>
+</nav>
+</header>
+<div class="container">
+    <h1 class="page-title">New Reteta</h1>
+
+    <form th:action="@{/retete/new}" method="post">
+        <div class="card">
+            <div class="form-row">
+                <label class="form-label">Pacient</label>
+                <select class="form-control" name="id_pacient" required>
+                    <option th:each="p : ${pacienti}" th:value="${p.id_pacient}" th:text="${p.nume} + ' ' + ${p.prenume}"></option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label class="form-label">Medicament</label>
+                <select class="form-control" name="id_medicament" required>
+                    <option th:each="m : ${medicamente}" th:value="${m.id_medicament}" th:text="${m.denumire}"></option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label class="form-label">Doza</label>
+                <input class="form-control" type="text" name="doza" required />
+            </div>
+            <div class="form-row">
+                <label class="form-label">Data start</label>
+                <input class="form-control" type="date" name="data_start" />
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a th:href="@{/retete}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

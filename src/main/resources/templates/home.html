@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/pacienti}" class="nav-link">Pacienti</a>
+    <a th:href="@{/medicamente}" class="nav-link">Medicamente</a>
+    <a th:href="@{/retete}" class="nav-link">Retete</a>
+</nav>
+</header>
+<div class="container">
+
+<div class="dashboard">
+    <h1 class="page-title">Aplicație - Dashboard</h1>
+    <p>Bine ai venit! - Un overview general:</p>
+
+    <div class="counts">
+        <div class="card">
+            <strong>Pacienti</strong>
+            <div th:text="${pacientiCount}">0</div>
+        </div>
+        <div class="card">
+            <strong>Medicamente</strong>
+            <div th:text="${medicamenteCount}">0</div>
+        </div>
+        <div class="card">
+            <strong>Retete</strong>
+            <div th:text="${reteteCount}">0</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

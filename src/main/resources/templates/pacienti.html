@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pacienti</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/pacienti}" class="nav-link">Pacienti</a>
+    <a th:href="@{/medicamente}" class="nav-link">Medicamente</a>
+    <a th:href="@{/retete}" class="nav-link">Retete</a>
+</nav>
+</header>
+<div class="container">
+
+<h1 class="page-title">Lista Pacienti</h1>
+<div style="margin-bottom:12px; text-align:right;">
+    <a th:href="@{/pacienti/new}" class="btn btn-primary">Add Pacient</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Data nasterii</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="p : ${pacienti}">
+            <td th:text="${p.nume}">Nume</td>
+            <td th:text="${p.prenume}">Prenume</td>
+            <td th:text="${p.data_nasterii}">1990-01-01</td>
+            <td>
+                <a th:href="@{/pacienti/edit/{id}(id=${p.id_pacient})}" class="btn btn-primary">Update</a>
+                <form th:action="@{/pacienti/delete/{id}(id=${p.id_pacient})}" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this pacient?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>New Pacient</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body class="app-bg">
+<header class="site-header">
+<nav class="main-nav">
+    <a th:href="@{/}" class="nav-link">Home</a>
+    <a th:href="@{/pacienti}" class="nav-link">Pacienti</a>
+</nav>
+</header>
+<div class="container">
+    <h1 class="page-title">New Pacient</h1>
+
+    <form th:action="@{/pacienti/new}" method="post">
+        <div class="card">
+            <div class="form-row">
+                <label class="form-label">Nume</label>
+                <input class="form-control" type="text" name="nume" required />
+            </div>
+            <div class="form-row">
+                <label class="form-label">Prenume</label>
+                <input class="form-control" type="text" name="prenume" required />
+            </div>
+            <div class="form-row">
+                <label class="form-label">Data nasterii</label>
+                <input class="form-control" type="date" name="data_nasterii" />
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a th:href="@{/pacienti}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

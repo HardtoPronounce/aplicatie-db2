@@ -1,0 +1,7 @@
+# Example application properties - do NOT commit real credentials here
+spring.datasource.url=jdbc:postgresql://localhost:5432/Spital
+spring.datasource.username=postgres
+spring.datasource.password=placeholderpassword
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true

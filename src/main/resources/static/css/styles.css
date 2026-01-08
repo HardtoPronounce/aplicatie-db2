@@ -1,0 +1,65 @@
+/* Dark / Blue theme stylesheet */
+:root{
+  --bg:#0f1724; /* dark navy */
+  --card:#0b1220; /* darker card */
+  --muted:#9fb3d5; /* light blue-gray */
+  --accent:#1e90ff; /* blue accent */
+  --text:#e6eef8; /* main text */
+}
+
+body.app-bg{
+  margin:0; padding:0; min-height:100vh; background:var(--bg); color:var(--text); font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.site-header{ background: linear-gradient(90deg, rgba(8,25,49,0.95), rgba(11,17,27,0.95)); padding:12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.main-nav{ display:flex; gap:16px; justify-content:center; align-items:center; }
+.nav-link{ color:var(--muted); text-decoration:none; padding:8px 14px; border-radius:8px; font-weight:500; }
+.nav-link:hover{ color:var(--text); background: rgba(30,144,255,0.08); box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset; }
+
+.container{ max-width:1100px; margin:28px auto; padding:20px; }
+.page-title{ margin:14px 0 8px 0; color:var(--text); font-size:1.5rem; }
+
+.counts{ display:flex; gap:20px; margin-top:20px; justify-content:center; }
+.card{ background:var(--card); padding:18px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 6px 18px rgba(2,6,23,0.6); color:var(--text); }
+.card strong{ display:block; color:var(--muted); margin-bottom:6px; }
+
+.dashboard{ text-align:center; }
+
+/* Form styles */
+.card label.form-label{ display:block; color:var(--muted); font-size:0.9rem; margin-bottom:6px; }
+.card .form-row{ display:block; margin-bottom:12px; }
+.card .form-control{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.02); color:var(--text); box-shadow: none; outline: none; font-size:0.95rem; }
+.card .form-control:focus{ box-shadow: 0 0 0 4px rgba(30,144,255,0.12); border-color: rgba(30,144,255,0.6); background: rgba(255,255,255,0.02); }
+.card .form-control[disabled]{ background: transparent; color:var(--muted); border: none; padding-left:0; }
+.card select.form-control{ appearance:none; -webkit-appearance:none; -moz-appearance:none; }
+
+/* Improve select & option contrast for system dropdowns */
+.card select.form-control { background: var(--card); color: var(--text); padding-right: 36px; }
+.card select.form-control option { background: var(--card); color: var(--text); }
+.card select.form-control option[disabled] { color: var(--muted); }
+/* For Windows Chromium browsers: keep dropdown text visible */
+.card select.form-control::-ms-expand { color: var(--text); }
+/* For webkit-based: try to force text color inside the select */
+.card select.form-control, .card select.form-control option { -webkit-text-fill-color: var(--text); }
+
+/* Provide clearer placeholder when used */
+.card select.form-control option.placeholder { color: var(--muted); }
+.form-actions{ margin-top:14px; text-align:right; }
+
+/* Buttons */
+.btn{ display:inline-block; padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); color:var(--text); background:transparent; text-decoration:none; cursor:pointer; font-weight:600; }
+.btn + .btn{ margin-left:8px; }
+.btn-primary{ background: linear-gradient(90deg,var(--accent), #1ca0ff); color: #04233b; }
+.btn-danger{ background: linear-gradient(90deg,#ff6b6b,#ff4b4b); color: #0b1220; }
+.btn-secondary{ background: rgba(255,255,255,0.02); color:var(--muted); }
+
+.table{ width:100%; border-collapse:collapse; margin-top:16px; overflow:hidden; border-radius:8px; }
+.table th, .table td{ padding:12px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.02); color:var(--text); }
+.table th{ background: rgba(255,255,255,0.02); color:var(--muted); font-weight:600; }
+.table tbody tr:hover{ background: rgba(255,255,255,0.02); }
+.table-striped tbody tr:nth-child(odd){ background: rgba(255,255,255,0.01); }
+
+.footer{ text-align:center; margin-top:28px; color:var(--muted); font-size:0.9rem; }
+
+/* Responsive tweaks */
+@media (max-width:700px){ .counts{ flex-direction:column; } .nav-link{ padding:8px 10px; } }
