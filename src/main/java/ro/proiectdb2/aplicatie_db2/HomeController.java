@@ -13,7 +13,6 @@ public class HomeController {
     private final PacientRepository pacientRepository;
     private final MedicamentRepository medicamentRepository;
     private final RetetaRepository retetaRepository;
-    private final javax.sql.DataSource dataSource;
 
     public HomeController(PacientRepository pacientRepository,
                           MedicamentRepository medicamentRepository,
@@ -22,7 +21,6 @@ public class HomeController {
         this.pacientRepository = pacientRepository;
         this.medicamentRepository = medicamentRepository;
         this.retetaRepository = retetaRepository;
-        this.dataSource = dataSource;
     }
 
     @GetMapping("/")
