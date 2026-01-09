@@ -111,28 +111,6 @@ public class HomeController {
         return "redirect:/medicamente";
     }
 
-    // Debug: lightweight JSON endpoint to inspect medicamente in DB
-    @GetMapping("/api/medicamente")
-    @ResponseBody
-    public java.util.List<Medicament> apiMedicamente() {
-        return medicamentRepository.findAll();
-    }
-
-    // Temporary debug endpoint to report the JDBC URL the app is using and medicament row count.
-    // Remove this once debugging is complete.
-    @GetMapping("/debug/datasource")
-    @ResponseBody
-    public java.util.Map<String, Object> debugDatasource() {
-        java.util.Map<String, Object> res = new java.util.HashMap<>();
-        try (java.sql.Connection conn = dataSource.getConnection()) {
-            res.put("jdbcUrl", conn.getMetaData().getURL());
-        } catch (Exception e) {
-            res.put("jdbcUrlError", e.getMessage());
-        }
-        res.put("medicamenteCount", medicamentRepository.count());
-        return res;
-    }
-
     @GetMapping("/retete")
     public String listRetete(Model model) {
         var all = retetaRepository.findAll();
